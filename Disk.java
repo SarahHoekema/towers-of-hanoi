@@ -1,3 +1,8 @@
+//Sean Chambers and Sarah Hoekema
+//CS 145
+//November 8, 2022
+//Lab 5 - Towers of Hanoi
+
 public class Disk{
   private int diskSize;
 
