@@ -10,21 +10,23 @@ public class TowersOfHanoi{
     if(tower.getCol3().size() == 4){
       return true;
     } else{
-     if(tower.checkMove(tower.getCurrentCol(), tower.getDestCol1())){ //first possible destination column
-      tower.place();
-      if(explore(tower){
-        return true;
+      if(tower.checkMove(tower.getDestCol1())){ //first possible destination column
+        tower.transfer(tower.getDestCol1());
+        if(exploreChoices(tower)){
+          return true;
+        }
+        tower.transfer(tower.getDestCol1());
       }
-      tower.remove();
-     }
-     if(tower.checkMove(tower.getCurrentCol(), tower.getDestCol2())){ //second possible destination column
-      tower.place();
-      if(explore(tower){
-        return true;
+      if(tower.checkMove(tower.getDestCol2())){ //second possible destination column
+        tower.transfer(tower.getDestCol2());
+        if(exploreChoices(tower)){
+          return true;
+        }
+        tower.transfer(tower.getDestCol2());
+      
+      return false;
       }
-      tower.remove();
-     }
-     return false;
+      return false;
     }
-  }
+  } 
 }
