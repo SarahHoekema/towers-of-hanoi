@@ -2,13 +2,29 @@ import java.util.*;
 
 public class TowersOfHanoi{
   public static void main(String[] args){
-    Stack<Disk> col1 = new Stack<Disk>();
-    Stack<Disk> col2 = new Stack<Disk>();
-    Stack<Disk> col3 = new Stack<Disk>();
+    Tower tower = new Tower();
+    exploreChoices(tower);
+  }
 
-    col1.push(new Disk(7));
-    col1.push(new Disk(5));
-    col1.push(new Disk(3));
-    col1.push(new Disk(1));
+  public static boolean exploreChoices(Tower tower){
+    if(tower.getCol3().size() == 4){
+      return true;
+    } else{
+     if(tower.checkMove(tower.getCurrentCol(), tower.getDestCol1())){ //first possible destination column
+      tower.place();
+      if(explore(tower){
+        return true;
+      }
+      tower.remove();
+     }
+     if(tower.checkMove(tower.getCurrentCol(), tower.getDestCol2())){ //second possible destination column
+      tower.place();
+      if(explore(tower){
+        return true;
+      }
+      tower.remove();
+     }
+     return false;
+    }
   }
 }
