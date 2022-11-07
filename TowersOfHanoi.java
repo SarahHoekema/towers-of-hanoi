@@ -23,8 +23,6 @@ public class TowersOfHanoi{
           return true;
         }
         tower.transfer(tower.getDestCol2());
-      
-      return false;
       }
       return false;
     }
