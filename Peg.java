@@ -5,36 +5,32 @@
 
 import java.util.*;
 
+//Peg.java represents a single peg of the Towers of Hanoi puzzle
 public class Peg {
+    //fields
     private int pegNum;
     private Stack<Disk> col;
-    private int size;
 
+    //constructor
     public Peg(int num){
         this.pegNum = num;
         this.col = new Stack<Disk>();
-        this.size = 0;
     }
 
+    //accepts a Disk as a parameter
+    //adds a single disk to the peg Stack
     public void add(Disk disk){
         col.push(disk);
-        size++;
     }
 
+    //removes a single Disk from the peg Stack
+    //returns a Disk
     public Disk remove(){
-        size--;
         return col.pop();
     }
 
-    public Disk checkDisk(){
-        return col.peek();
-    }
-
+    //returns the peg number
     public int getPegNum(){
         return pegNum;
-    }
-
-    public int size(){
-        return size;
     }
 }

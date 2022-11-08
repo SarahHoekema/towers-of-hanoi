@@ -3,7 +3,13 @@
 //November 8, 2022
 //Lab 5 - Towers of Hanoi
 
-//TowersOfHanoi.java 
+//TowerOfHanoi.java solves the Towers of Hanoi puzzle. The puzzle involves manipulating 4 disks
+//of decreasing size between 3 different towers, or pegs, so that all the disks
+//from the first column will eventually be stacked on the 3rd peg in decreasing order,
+//with the smallest on top. Only one disk can be moved at a time and no disk may be placed
+//on top of a disk smaller than it. The program utilizes a Disk and Peg class to represent
+//the disks and pegs and uses recursion to solve the puzzle, then prints out the resulting
+//stack on the 3rd peg.
 public class TowersOfHanoi {
     //initialize each peg of the tower
     private static Peg COL1 = new Peg(1);
@@ -26,6 +32,9 @@ public class TowersOfHanoi {
         System.out.println(COL3.remove());
     }
 
+    //accepts a int num and source, destination, and other Pegs as parameters
+    //move disks between the pegs while following a recursive pattern in order
+    //to solve the puzzle
     public static void solveHanoi(int n, Peg source, Peg destination, Peg other){
         //base case if only one disk left to move, then move to destination
         if(n==1){
@@ -34,7 +43,7 @@ public class TowersOfHanoi {
         } else {
             //recursively move one less disk to open peg to allow bottom disk to move
             solveHanoi(n-1, source, other, destination); 
-            //move bottom peg to destination
+            //move bottom disk to destination
             destination.add(source.remove());
             //recursively move the stack of one less disk to be on top of recently moved disk.
             solveHanoi(n-1, other, destination, source);
