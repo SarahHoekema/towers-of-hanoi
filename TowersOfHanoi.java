@@ -11,25 +11,25 @@
 //the disks and pegs and uses recursion to solve the puzzle, then prints out the resulting
 //stack on the 3rd peg.
 public class TowersOfHanoi {
-    //initialize each peg of the tower
-    private static Peg COL1 = new Peg(1);
-    private static Peg COL2 = new Peg(2);
-    private static Peg COL3 = new Peg(3);
     public static void main(String[] args){
-        //add 4 disks of differing size to the first peg
-        COL1.add(new Disk(4));
-        COL1.add(new Disk(3));
-        COL1.add(new Disk(2));
-        COL1.add(new Disk(1));
+        Peg col1 = new Peg(1);
+        Peg col2 = new Peg(2);
+        Peg col3 = new Peg(3);
 
-        //this represents a a request to move 4 disks from COL1 to COL3
-        solveHanoi(4,COL1,COL3,COL2); 
+        //add 4 disks of differing size to the first peg
+        col1.add(new Disk(4));
+        col1.add(new Disk(3));
+        col1.add(new Disk(2));
+        col1.add(new Disk(1));
+
+        //this represents a a request to move 4 disks from col1 to col3
+        solveHanoi(4,col1,col3,col2); 
 
         //print out the contents of the 3rd peg
-        System.out.println(COL3.remove());
-        System.out.println(COL3.remove());
-        System.out.println(COL3.remove());
-        System.out.println(COL3.remove());
+        System.out.println(col3.remove());
+        System.out.println(col3.remove());
+        System.out.println(col3.remove());
+        System.out.println(col3.remove());
     }
 
     //accepts a int num and source, destination, and other Pegs as parameters
