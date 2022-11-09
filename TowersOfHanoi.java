@@ -26,6 +26,7 @@ public class TowersOfHanoi {
         solveHanoi(4,col1,col3,col2); 
 
         //print out the contents of the 3rd peg
+        System.out.println("\nFinal stack:");
         System.out.println(col3.remove());
         System.out.println(col3.remove());
         System.out.println(col3.remove());
@@ -39,12 +40,18 @@ public class TowersOfHanoi {
         //base case if only one disk left to move, then move to destination
         if(n==1){
             destination.add(source.remove());
+            //print out move
+            System.out.println("Peg " + source.getPegNum() + " disk moves to Peg "
+                + destination.getPegNum());
             return;
         } else {
             //recursively move one less disk to open peg to allow bottom disk to move
             solveHanoi(n-1, source, other, destination); 
             //move bottom disk to destination
             destination.add(source.remove());
+            //print out move
+            System.out.println("Peg " + source.getPegNum() + " disk moves to Peg "
+                + destination.getPegNum());
             //recursively move the stack of one less disk to be on top of recently moved disk.
             solveHanoi(n-1, other, destination, source);
         }
